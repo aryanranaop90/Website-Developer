@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070b16">
+
+<title>WebCraft Studio | Website Development Services</title>
+
+<meta name="description" content="Professional website development services for businesses, e-commerce stores, portfolios, and educational platforms. Ask about our client rewards and referral benefits.">
+
+<style>
+:root {
+  --bg: #070b16;
+  --panel: #10182a;
+  --panel2: #121f35;
+  --cyan: #43e5ff;
+  --blue: #5488ff;
+  --text: #f4f8ff;
+  --muted: #a7b4cb;
+  --border: rgba(255,255,255,.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+.container {
+  width: min(1120px, 91%);
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7,11,22,.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: -.5px;
+}
+
+.logo span {
+  color: var(--cyan);
+}
+
+nav {
+  display: flex;
+  gap: 23px;
+  align-items: center;
+}
+
+nav a {
+  color: var(--muted);
+  font-size: 14px;
+  transition: .2s;
+}
+
+nav a:hover {
+  color: var(--cyan);
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  padding: 13px 20px;
+  border-radius: 10px;
+  font-weight: 800;
+  background: linear-gradient(100deg, var(--cyan), #8bcbff);
+  color: #06101d;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(67,229,255,.18);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.hero {
+  padding: 105px 0 85px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(49,115,255,.2), transparent 55%),
+    radial-gradient(ellipse at 0% 60%, rgba(67,229,255,.06), transparent 40%);
+}
+
+.badge {
+  display: inline-block;
+  padding: 7px 13px;
+  border: 1px solid rgba(67,229,255,.25);
+  border-radius: 50px;
+  background: rgba(67,229,255,.07);
+  color: var(--cyan);
+  font-size: 13px;
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: clamp(36px, 6vw, 67px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--cyan), #a6baff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 680px;
+  color: var(--muted);
+  margin: 22px auto 30px;
+  font-size: 17px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.trust {
+  margin-top: 42px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 25px;
+  justify-content: center;
+  color: #bdc9dc;
+  font-size: 13px;
+}
+
+section {
+  padding: 78px 0;
+  scroll-margin-top: 80px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.section-heading h2 {
+  font-size: clamp(27px, 4vw, 39px);
+  line-height: 1.2;
+}
+
+.section-heading p {
+  max-width: 650px;
+  color: var(--muted);
+  margin: 13px auto 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card {
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  background: linear-gradient(145deg, var(--panel), #0a1020);
+  transition: .25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(67,229,255,.4);
+}
+
+.icon {
+  font-size: 31px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.card p, .card li {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.card ul {
+  list-style: none;
+  margin-top: 13px;
+}
+
+.card li {
+  margin: 7px 0;
+}
+
+.card li::before {
+  content: "✓ ";
+  color: var(--cyan);
+  font-weight: bold;
+}
+
+.features {
+  background: #0a1020;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+}
+
+.feature {
+  padding: 17px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.feature span {
+  color: var(--cyan);
+  margin-right: 6px;
+}
+
+.rewards {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(67,229,255,.08), transparent 60%);
+}
+
+.reward-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.reward-card .number {
+  color: var(--cyan);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.reward-card strong {
+  color: white;
+}
+
+.reward-note {
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 17px;
+  margin-top: 22px;
+  font-size: 13px;
+}
+
+.referral-banner {
+  padding: 35px;
+  border-radius: 20px;
+  border: 1px solid rgba(67,229,255,.2);
+  background: linear-gradient(120deg, #102238, #11182b);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.referral-banner h3 {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.referral-banner p {
+  color: var(--muted);
+  max-width: 650px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.step {
+  padding: 23px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.step b {
+  color: var(--cyan);
+  display: block;
+  margin-bottom: 7px;
+}
+
+.step p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.contact-section {
+  background: #0a1020;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 35px;
+  align-items: start;
+}
+
+.contact-info h3 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.contact-info p {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.email-link {
+  color: var(--cyan);
+  overflow-wrap: anywhere;
+}
+
+.contact-form {
+  padding: 26px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 13px;
+  color: #dce6f7;
+}
+
+input, textarea, select {
+  width: 100%;
+  border: 1px solid #283750;
+  background: #091020;
+  color: white;
+  padding: 13px;
+  border-radius: 9px;
+  outline: none;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--cyan);
+}
+
+textarea {
+  min-height: 115px;
+  resize: vertical;
+}
+
+.contact-form .btn {
+  width: 100%;
+}
+
+.form-help {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+footer {
+  padding: 27px 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer a {
+  color: var(--cyan);
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  background: #172a3e;
+  border: 1px solid var(--cyan);
+  padding: 13px 18px;
+  border-radius: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: .25s;
+  z-index: 200;
+  width: max-content;
+  max-width: 90%;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media(max-width: 850px) {
+  nav {
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 580px) {
+  .nav {
+    padding: 14px 0;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .nav > .btn {
+    padding: 10px 13px;
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 76px 0 60px;
+  }
+
+  h1 {
+    letter-spacing: -1px;
+  }
+
+  section {
+    padding: 57px 0;
+  }
+
+  .grid, .steps, .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .referral-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .contact-form {
+    padding: 19px;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">WEB<span>CRAFT</span></a>
+
+    <nav aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#features">Features</a>
+      <a href="#rewards">Rewards</a>
+      <a href="#referrals">Referrals</a>
+    </nav>
+
+    <a class="btn" href="#contact">Contact Us ↗</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="badge">✦ YOUR IDEAS, BUILT FOR THE WEB</div>
+
+    <h1>
+      Build Your Digital Future With
+      <span class="gradient-text">Professional Websites</span>
+    </h1>
+
+    <p>
+      From business websites and online stores to custom web applications,
+      let's turn your idea into a modern, responsive digital experience.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn" href="#contact">Start Your Project ↗</a>
+      <a class="btn btn-outline" href="#services">Explore Services</a>
+    </div>
+
+    <div class="trust">
+      <span>✓ Custom Designs</span>
+      <span>✓ Responsive Layouts</span>
+      <span>✓ Tailored Features</span>
+      <span>✓ Client Reward Program</span>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-heading reveal">
+      <h2>Website Development <span class="gradient-text">Services</span></h2>
+      <p>Choose the type of website you need. Features can be customized to suit your project.</p>
+    </div>
+
+    <div class="grid">
+
+      <article class="card reveal">
+        <div class="icon">🛍️</div>
+        <h3>E-Commerce Websites</h3>
+        <p>Bring your products online with a shopping experience designed for your customers.</p>
+        <ul>
+          <li>Product categories and search</li>
+          <li>Shopping cart and checkout</li>
+          <li>Inventory and order management</li>
+          <li>Coupons and promotional banners</li>
+          <li>Payment gateway integration</li>
+        </ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">🏢</div>
+        <h3>Business Websites</h3>
+        <p>Build a professional online presence for your shop, company, or local business.</p>
+        <ul>
+          <li>Business profile and services</li>
+          <li>Product or service showcases</li>
+          <li>Contact forms</li>
+          <li>WhatsApp contact integration</li>
+          <li>Location and business information</li>
+        </ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">🎓</div>
+        <h3>Educational Websites</h3>
+        <p>Organize your courses and learning resources in one convenient place.</p>
+        <ul>
+          <li>Online course catalog</li>
+          <li>Video lessons and PDFs</li>
+          <li>Student accounts</li>
+          <li>Course management</li>
+          <li>Learning dashboards</li>
+        </ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">👨‍💻</div>
+        <h3>Portfolio Websites</h3>
+        <p>Showcase your skills, work, and achievements with a personalized portfolio.</p>
+        <ul>
+          <li>Project gallery</li>
+          <li>About and skills sections</li>
+          <li>Resume and experience</li>
+          <li>Contact information</li>
+          <li>Personal branding</li>
+        </ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">📦</div>
+        <h3>Digital Product Stores</h3>
+        <p>Present and sell digital products through a dedicated storefront.</p>
+        <ul>
+          <li>Product listings</li>
+          <li>Digital product descriptions</li>
+          <li>Secure payment integration</li>
+          <li>Download delivery options</li>
+          <li>Order records</li>
+        </ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">⚙️</div>
+        <h3>Custom Web Applications</h3>
+        <p>Turn a unique idea into an interactive website or web application.</p>
+        <ul>
+          <li>Custom dashboards</li>
+          <li>Authentication systems</li>
+          <li>Database integration</li>
+          <li>Interactive tools</li>
+          <li>Project-specific functionality</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-heading reveal">
+      <h2>Powerful <span class="gradient-text">Website Features</span></h2>
+      <p>Build a website with the tools and functionality your project actually needs.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature"><span>✦</span> Modern UI/UX Design</div>
+      <div class="feature"><span>✦</span> Mobile Responsiveness</div>
+      <div class="feature"><span>✦</span> Smooth Animations</div>
+      <div class="feature"><span>✦</span> Login & Registration</div>
+      <div class="feature"><span>✦</span> Admin Dashboards</div>
+      <div class="feature"><span>✦</span> Firebase Integration</div>
+      <div class="feature"><span>✦</span> Real-Time Database</div>
+      <div class="feature"><span>✦</span> Payment Integration</div>
+      <div class="feature"><span>✦</span> Order Management</div>
+      <div class="feature"><span>✦</span> Contact Forms</div>
+      <div class="feature"><span>✦</span> WhatsApp Integration</div>
+      <div class="feature"><span>✦</span> Domain Connection</div>
+      <div class="feature"><span>✦</span> Basic SEO Structure</div>
+      <div class="feature"><span>✦</span> Search & Filters</div>
+      <div class="feature"><span>✦</span> Email Notifications</div>
+      <div class="feature"><span>✦</span> Custom Functionality</div>
+    </div>
+  </div>
+</section>
+
+<section class="rewards" id="rewards">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="badge">🎁 CLIENT LOYALTY PROGRAM</div>
+      <h2>Build More. <span class="gradient-text">Unlock Rewards.</span></h2>
+      <p>Special benefits for eligible clients who return for more projects.</p>
+    </div>
+
+    <div class="grid">
+
+      <article class="card reward-card reveal">
+        <div class="number">REWARD LEVEL 01</div>
+        <div class="icon">🌐</div>
+        <h3>Domain Bonus</h3>
+        <p>Get <strong>3 eligible websites developed</strong> and receive one free domain registration.</p>
+      </article>
+
+      <article class="card reward-card reveal">
+        <div class="number">REWARD LEVEL 02</div>
+        <div class="icon">🎨</div>
+        <h3>Branding Bonus</h3>
+        <p>Get <strong>5 eligible websites developed</strong> and receive one free domain registration plus a basic logo design.</p>
+      </article>
+
+      <article class="card reward-card reveal">
+        <div class="number">REWARD LEVEL 03</div>
+        <div class="icon">💎</div>
+        <h3>Priority Benefits</h3>
+        <p>Get <strong>10 eligible websites developed</strong> and receive one free domain registration, a basic logo design, and priority support.</p>
+      </article>
+
+    </div>
+
+    <div class="reward-note reveal">
+      <strong>Reward terms:</strong> Website counts must be confirmed as eligible completed projects.
+      Free domain rewards cover one eligible domain's initial registration only.
+      Premium domains, hosting, renewals, and extra services are excluded unless agreed in writing.
+      Logo scope, priority support, and reward eligibility must be confirmed before the project.
+      Rewards are not cash-equivalent.
+    </div>
+  </div>
+</section>
+
+<section id="referrals">
+  <div class="container">
+
+    <div class="referral-banner reveal">
+      <div>
+        <div class="badge">🤝 REFER & EARN</div>
+        <h3>Know Someone Who Needs a Website?</h3>
+        <p>
+          Introduce a friend, creator, or business owner to our services.
+          Eligible referrals can unlock rewards after the referred project
+          is confirmed, completed as agreed, and payment is received.
+          Contact us for the current referral terms.
+        </p>
+      </div>
+      <a class="btn" href="#contact" data-subject="Referral Program Inquiry">Refer a Client ↗</a>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <b>01 — MAKE A REFERRAL</b>
+        <p>Connect a potential client who is interested in a website project.</p>
+      </div>
+
+      <div class="step reveal">
+        <b>02 — PROJECT CONFIRMATION</b>
+        <p>The client discusses requirements and confirms their project.</p>
+      </div>
+
+      <div class="step reveal">
+        <b>03 — UNLOCK YOUR REWARD</b>
+        <p>Once the agreed eligibility conditions are met, receive the applicable referral benefit.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <h2>Let's Build Something <span class="gradient-text">Amazing</span></h2>
+      <p>Tell us about your idea, project requirements, or referral inquiry.</p>
+    </div>
+
+    <div class="contact-layout">
+
+      <div class="contact-info reveal">
+        <h3>Let's Talk About Your Project.</h3>
+        <p>
+          Have an idea for a business website, online store, portfolio,
+          or custom application? Send your requirements and let's discuss
+          the next steps.
+        </p>
+
+        <p><strong>📩 Email Contact</strong></p>
+        <p>
+          <a class="email-link"
+             href="mailto:kraryan814@gmail.com">
+             kraryan814@gmail.com
+          </a>
+        </p>
+
+        <p><strong>💻 Services</strong><br>
+        Business websites, e-commerce, portfolios, educational platforms,
+        and custom projects.</p>
+
+        <p><strong>🎁 Ask about</strong><br>
+        Client rewards, free-domain eligibility, and referral benefits.</p>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm">
+
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Your Name *</label>
+            <input id="name" name="name" required maxlength="100"
+                   autocomplete="name" placeholder="Enter your name">
+          </div>
+
+          <div class="field">
+            <label for="email">Your Email *</label>
+            <input id="email" name="email" type="email" required
+                   maxlength="150" autocomplete="email"
+                   placeholder="you@example.com">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="type">What do you need? *</label>
+          <select id="type" name="type" required>
+            <option value="">Select a service</option>
+            <option>Business Website</option>
+            <option>E-Commerce Website</option>
+            <option>Educational Website</option>
+            <option>Portfolio Website</option>
+            <option>Digital Product Store</option>
+            <option>Custom Web Application</option>
+            <option>Referral Program Inquiry</option>
+            <option>Client Rewards Inquiry</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="features">Required Features</label>
+          <input id="features" name="features" maxlength="500"
+                 placeholder="e.g. Admin panel, Firebase, payments">
+   
